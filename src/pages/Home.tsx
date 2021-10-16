@@ -13,7 +13,7 @@ export function Home() {
   const {user,signInWithGoogle} = useAuth();
 
   async function handleCreateRoom() {
-    if (!user) {
+    if (!user) { //verificar se tem usuario autenticado
       await signInWithGoogle()
     }
 
