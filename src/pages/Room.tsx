@@ -7,6 +7,7 @@ import { database } from '../services/firebase';
 import '../styles/room.scss';
 import { Button } from '../components/Button';
 import logoImg from '../assets/images/logo.svg';
+import { Question } from '../components/Question';
 
 type FirebaseQuestions = Record<string, {
   author: {
@@ -123,7 +124,18 @@ export function Room() {
           </div>
         </form>
 
-        {JSON.stringify(questions)}
+        {/*{JSON.stringify(questions)}*/}
+        <div className="question-list">
+          {questions.map(question => {
+            return(
+              <Question 
+                key={question.id}
+                content={question.content}
+                author={question.author}
+              />
+            );
+          })}
+        </div>
       </main>
     </div>
   );
